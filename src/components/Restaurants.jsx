@@ -22,7 +22,7 @@ const Restaurants = () => {
 
 
         <div className='min-h-screen py-40 flex flex-col justify-start items-center lg:px-32 px-5'>
-            <h1 className='text-4xl py-5 flex flex-row'><BiBuildings /> Restaurants</h1>
+            <h1 className='text-4xl md:text-3xl py-5 flex flex-row'><BiBuildings /> Restaurants</h1>
             <motion.div
                 initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -31,20 +31,23 @@ const Restaurants = () => {
             >
                 {
                     Object.entries(clusteredData).map((item) => {
-                        return <Accordion expanded={expanded === item[0]} onChange={handleChange(item[0])} transitionProps={{ unmountOnExit: true }} className='!mt-0'>
+                        const state = item[0];
+                        const restaurant = item[1];
+
+                        return <Accordion key={state} expanded={expanded === state} onChange={handleChange(state)} transitionProps={{ unmountOnExit: true }} className='!mt-0'>
                             <AccordionSummary
                                 expandIcon={<MdExpandMore className=' !text-white' />}
                                 aria-controls="panel2d-content" id="panel2d-header"
                                 className='!bg-yellow-600 !text-white'
                             >
                                 <Typography sx={{ width: '33%' }} className='flex flex-row items-center gap-2'>
-                                    <BiMap className='md:flex hidden '/> {item[0]}
+                                    <BiMap className='md:flex hidden ' /> {state}
                                 </Typography>
                             </AccordionSummary>
                             {
-                                item[1].map((value, key) => {
-                                    return <AccordionDetails>
-                                        <Typography className='text-4xl flex flex-row items-center gap-3'><BiFoodMenu /> {value.restaurant_name}</Typography>
+                                restaurant.map(({ restaurant_name }, key) => {
+                                    return <AccordionDetails key={key}>
+                                        <Typography className='text-4xl flex flex-row items-center gap-3'><BiFoodMenu /> {restaurant_name}</Typography>
                                     </AccordionDetails>
                                 })
                             }

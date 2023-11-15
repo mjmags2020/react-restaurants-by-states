@@ -38,7 +38,7 @@ const Restaurants = () => {
                                 className='!bg-yellow-600 !text-white'
                             >
                                 <Typography sx={{ width: '33%' }} className='flex flex-row items-center gap-2'>
-                                    <BiMap /> {item[0]}
+                                    <BiMap className='md:flex hidden '/> {item[0]}
                                 </Typography>
                             </AccordionSummary>
                             {

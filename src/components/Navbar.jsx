@@ -48,7 +48,7 @@ const Navbar = () => {
                         }
                     </div>
                 </div>
-                <div className={`${menu ? 'translate-x-0' : 'translate-x-full'} lg:hidden  flex flex-col  absolute bg-orange-100 min-h-screen text-slate-700 ;ef-0 top-20 font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300 mt-[-5px]  border-t-slate-400`}>
+                <div className={`${menu ? 'translate-x-0' : 'translate-x-full'} md:hidden  flex flex-col  absolute bg-slate-300 min-h-screen text-slate-700 ;ef-0 top-20 font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300 mt-[-8px]  border-t-slate-300`}>
                     {
                         headerLinks.map(header => <Link key={header.label} to={header.link} spy={true} smooth={true} duration={500} className='hover:text-brightColor traansition-all cursor-pointer'>{header.label}</Link>)
                     }

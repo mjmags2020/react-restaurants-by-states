@@ -27,7 +27,7 @@ const Restaurants = () => {
                 initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 2 }}
-                className="w-3/4"
+                className="md:w-3/4  w-full  "
             >
                 {
                     Object.entries(clusteredData).map((item) => {
